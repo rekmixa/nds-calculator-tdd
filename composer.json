@@ -1,0 +1,17 @@
+{
+    "name": "rekmixa/nds-calculator-tdd",
+    "description": "NdsCalculator with TDD",
+    "require": {
+        "php": ">=8.3.9",
+        "vlucas/phpdotenv": "^5.3",
+        "clio/clio": "^0.1.8"
+    },
+    "autoload": {
+        "files": [
+            "app/functions.php"
+        ],
+        "psr-4": {
+            "App\\": "app"
+        }
+    }
+}
