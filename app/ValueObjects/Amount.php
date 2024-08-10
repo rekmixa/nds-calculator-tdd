@@ -4,18 +4,12 @@ declare(strict_types=1);
 
 namespace App\ValueObjects;
 
-use App\ValueObjects\Exceptions\AmountCannotBeNegative;
-
 final class Amount
 {
     private float $value;
 
     public function __construct(float $value)
     {
-        if ($value < 0) {
-            throw new AmountCannotBeNegative();
-        }
-
         $this->value = $value;
     }
 
@@ -46,10 +40,22 @@ final class Amount
 
     public function multiply(self $amount): self
     {
-        $result = $this->value * $amount->value;
-        $result = (float)number_format($result, 2);
+        return self::fromFloat($this->value * $amount->value);
+    }
 
-        return self::fromFloat($result);
+    public function divide(self $amount): self
+    {
+        return self::fromFloat($this->value / $amount->value);
+    }
+
+    public function invertSign(): self
+    {
+        return self::fromFloat($this->value * -1);
+    }
+
+    public function normalize(): self
+    {
+        return self::fromFloat((float)number_format($this->value, 2));
     }
 
     public function equals(self $amount): bool
