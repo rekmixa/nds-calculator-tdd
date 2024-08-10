@@ -44,6 +44,14 @@ final class Amount
         return self::fromFloat($this->value - $amount->value);
     }
 
+    public function multiply(self $amount): self
+    {
+        $result = $this->value * $amount->value;
+        $result = (float)number_format($result, 2);
+
+        return self::fromFloat($result);
+    }
+
     public function equals(self $amount): bool
     {
         return $this->value === $amount->value;
