@@ -19,9 +19,12 @@ final class NdsCalculator
 
     public function extractNdsFromAmount(Amount $amount, Nds $nds): Amount
     {
-        $result = $amount->getValue() / (float)"1.{$nds->getValue()}";
+        $ndsNumber = ($nds->getValue() / 100) + 1;
+        $result = $amount->getValue() / $ndsNumber;
+        $result -= $amount->getValue();
+        $result *= -1;
         $result = (float)number_format($result, 2);
 
-        return $amount->subtract(Amount::fromFloat($result));
+        return Amount::fromFloat($result);
     }
 }

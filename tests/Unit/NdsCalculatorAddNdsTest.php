@@ -12,7 +12,7 @@ use PHPUnit\Framework\TestCase;
 
 final class NdsCalculatorAddNdsTest extends TestCase
 {
-    public function addNdsToAmountProvider(): array
+    public static function addNdsToAmountProvider(): array
     {
         return [
             [Amount::fromInt(1200), Amount::fromInt(1000), Nds::fromInt(20)],
@@ -27,7 +27,11 @@ final class NdsCalculatorAddNdsTest extends TestCase
     public function testAddNdsToAmount(Amount $expectedAmount, Amount $amount, Nds $nds): void
     {
         $ndsCalculator = new NdsCalculator();
+        $result = $ndsCalculator->addNdsToAmount($amount, $nds);
 
-        self::assertTrue($ndsCalculator->addNdsToAmount($amount, $nds)->equals($expectedAmount));
+        self::assertTrue(
+            $result->equals($expectedAmount),
+            'Expected: ' . $expectedAmount->getValue() . ', Actual: ' . $result->getValue(),
+        );
     }
 }
