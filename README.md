@@ -18,10 +18,9 @@ make
 make composer-install
 ```
 
-## Launch application
+## Running tests
 
 ```bash
 make env
-make env-root
-php cli/index.php
+vendor/bin/phpunit tests
 ```
