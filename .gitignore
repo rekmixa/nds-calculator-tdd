@@ -1,5 +1,5 @@
 build
-phpunit.xml
+.phpunit.cache
 vendor
 .php_cs.cache
 .phpunit.result.cache
@@ -8,3 +8,4 @@ vendor
 .pecl
 .idea
 docker-compose.override.yml
+infector.log

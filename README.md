@@ -24,3 +24,10 @@ make composer-install
 make env
 vendor/bin/phpunit tests
 ```
+
+## Running mutation tests
+
+```bash
+make env
+// todo
+```
