@@ -7,9 +7,13 @@ namespace Tests\Unit;
 use App\Services\NdsCalculator;
 use App\ValueObjects\Amount;
 use App\ValueObjects\Nds;
+use PHPUnit\Framework\Attributes\CoversMethod;
 use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\UsesClass;
 use PHPUnit\Framework\TestCase;
 
+#[UsesClass(NdsCalculator::class)]
+#[CoversMethod(NdsCalculator::class, 'addNdsToAmount')]
 final class NdsCalculatorAddNdsTest extends TestCase
 {
     public static function addNdsToAmountProvider(): array

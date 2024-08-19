@@ -5,8 +5,14 @@ declare(strict_types=1);
 namespace Tests\Unit;
 
 use App\ValueObjects\Amount;
+use PHPUnit\Framework\Attributes\CoversMethod;
+use PHPUnit\Framework\Attributes\UsesClass;
 use PHPUnit\Framework\TestCase;
 
+#[UsesClass(Amount::class)]
+#[CoversMethod(Amount::class, 'fromInt')]
+#[CoversMethod(Amount::class, 'fromFloat')]
+#[CoversMethod(Amount::class, 'getValue')]
 final class AmountValueObjectTest extends TestCase
 {
     public function testCreateFromInt(): void
