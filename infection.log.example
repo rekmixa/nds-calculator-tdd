@@ -1,0 +1,426 @@
+Escaped mutants:
+================
+
+Timed Out mutants:
+==================
+
+Skipped mutants:
+================
+
+Not Covered mutants:
+====================
+
+1) /app/app/ValueObjects/Amount.php:16    [M] PublicVisibility
+
+@@ @@
+     {
+         $this->value = $value;
+     }
+-    public static function fromInt(int $value): self
++    protected static function fromInt(int $value): self
+     {
+         return new self((float) $value);
+     }
+
+
+2) /app/app/ValueObjects/Amount.php:18    [M] CastFloat
+
+@@ @@
+     }
+     public static function fromInt(int $value): self
+     {
+-        return new self((float) $value);
++        return new self($value);
+     }
+     public static function fromFloat(float $value): self
+     {
+
+
+3) /app/app/ValueObjects/Amount.php:21    [M] PublicVisibility
+
+@@ @@
+     {
+         return new self((float) $value);
+     }
+-    public static function fromFloat(float $value): self
++    protected static function fromFloat(float $value): self
+     {
+         return new self($value);
+     }
+
+
+4) /app/app/ValueObjects/Amount.php:31    [M] PublicVisibility
+
+@@ @@
+     {
+         return $this->value;
+     }
+-    public function add(self $amount): self
++    protected function add(self $amount): self
+     {
+         return self::fromFloat($this->value + $amount->value);
+     }
+
+
+5) /app/app/ValueObjects/Amount.php:33    [M] Plus
+
+@@ @@
+     }
+     public function add(self $amount): self
+     {
+-        return self::fromFloat($this->value + $amount->value);
++        return self::fromFloat($this->value - $amount->value);
+     }
+     public function subtract(self $amount): self
+     {
+
+
+6) /app/app/ValueObjects/Amount.php:36    [M] PublicVisibility
+
+@@ @@
+     {
+         return self::fromFloat($this->value + $amount->value);
+     }
+-    public function subtract(self $amount): self
++    protected function subtract(self $amount): self
+     {
+         return self::fromFloat($this->value - $amount->value);
+     }
+
+
+7) /app/app/ValueObjects/Amount.php:38    [M] Minus
+
+@@ @@
+     }
+     public function subtract(self $amount): self
+     {
+-        return self::fromFloat($this->value - $amount->value);
++        return self::fromFloat($this->value + $amount->value);
+     }
+     public function multiply(self $amount): self
+     {
+
+
+8) /app/app/ValueObjects/Amount.php:41    [M] PublicVisibility
+
+@@ @@
+     {
+         return self::fromFloat($this->value - $amount->value);
+     }
+-    public function multiply(self $amount): self
++    protected function multiply(self $amount): self
+     {
+         return self::fromFloat($this->value * $amount->value);
+     }
+
+
+9) /app/app/ValueObjects/Amount.php:43    [M] Multiplication
+
+@@ @@
+     }
+     public function multiply(self $amount): self
+     {
+-        return self::fromFloat($this->value * $amount->value);
++        return self::fromFloat($this->value / $amount->value);
+     }
+     public function divide(self $amount): self
+     {
+
+
+10) /app/app/ValueObjects/Amount.php:46    [M] PublicVisibility
+
+@@ @@
+     {
+         return self::fromFloat($this->value * $amount->value);
+     }
+-    public function divide(self $amount): self
++    protected function divide(self $amount): self
+     {
+         return self::fromFloat($this->value / $amount->value);
+     }
+
+
+11) /app/app/ValueObjects/Amount.php:48    [M] Division
+
+@@ @@
+     }
+     public function divide(self $amount): self
+     {
+-        return self::fromFloat($this->value / $amount->value);
++        return self::fromFloat($this->value * $amount->value);
+     }
+     public function invertSign(): self
+     {
+
+
+12) /app/app/ValueObjects/Amount.php:51    [M] PublicVisibility
+
+@@ @@
+     {
+         return self::fromFloat($this->value / $amount->value);
+     }
+-    public function invertSign(): self
++    protected function invertSign(): self
+     {
+         return self::fromFloat($this->value * -1);
+     }
+
+
+13) /app/app/ValueObjects/Amount.php:53    [M] DecrementInteger
+
+@@ @@
+     }
+     public function invertSign(): self
+     {
+-        return self::fromFloat($this->value * -1);
++        return self::fromFloat($this->value * -2);
+     }
+     public function normalize(): self
+     {
+
+
+14) /app/app/ValueObjects/Amount.php:53    [M] IncrementInteger
+
+@@ @@
+     }
+     public function invertSign(): self
+     {
+-        return self::fromFloat($this->value * -1);
++        return self::fromFloat($this->value * -0);
+     }
+     public function normalize(): self
+     {
+
+
+15) /app/app/ValueObjects/Amount.php:56    [M] PublicVisibility
+
+@@ @@
+     {
+         return self::fromFloat($this->value * -1);
+     }
+-    public function normalize(): self
++    protected function normalize(): self
+     {
+         return self::fromFloat((float) number_format($this->value, 2));
+     }
+
+
+16) /app/app/ValueObjects/Amount.php:58    [M] DecrementInteger
+
+@@ @@
+     }
+     public function normalize(): self
+     {
+-        return self::fromFloat((float) number_format($this->value, 2));
++        return self::fromFloat((float) number_format($this->value, 1));
+     }
+     public function equals(self $amount): bool
+     {
+
+
+17) /app/app/ValueObjects/Amount.php:58    [M] IncrementInteger
+
+@@ @@
+     }
+     public function normalize(): self
+     {
+-        return self::fromFloat((float) number_format($this->value, 2));
++        return self::fromFloat((float) number_format($this->value, 3));
+     }
+     public function equals(self $amount): bool
+     {
+
+
+18) /app/app/ValueObjects/Amount.php:58    [M] CastFloat
+
+@@ @@
+     }
+     public function normalize(): self
+     {
+-        return self::fromFloat((float) number_format($this->value, 2));
++        return self::fromFloat(number_format($this->value, 2));
+     }
+     public function equals(self $amount): bool
+     {
+
+
+19) /app/app/ValueObjects/Amount.php:61    [M] PublicVisibility
+
+@@ @@
+     {
+         return self::fromFloat((float) number_format($this->value, 2));
+     }
+-    public function equals(self $amount): bool
++    protected function equals(self $amount): bool
+     {
+         return $this->value === $amount->value;
+     }
+ }
+
+
+20) /app/app/ValueObjects/Amount.php:63    [M] Identical
+
+@@ @@
+     }
+     public function equals(self $amount): bool
+     {
+-        return $this->value === $amount->value;
++        return $this->value !== $amount->value;
+     }
+ }
+
+
+21) /app/app/ValueObjects/Nds.php:16    [M] LessThan
+
+@@ @@
+     private int $value;
+     private function __construct(int $value)
+     {
+-        if ($value < 0) {
++        if ($value <= 0) {
+             throw new NdsCannotBeNegative();
+         }
+         if ($value > 20) {
+
+
+22) /app/app/ValueObjects/Nds.php:16    [M] LessThanNegotiation
+
+@@ @@
+     private int $value;
+     private function __construct(int $value)
+     {
+-        if ($value < 0) {
++        if ($value >= 0) {
+             throw new NdsCannotBeNegative();
+         }
+         if ($value > 20) {
+
+
+23) /app/app/ValueObjects/Nds.php:17    [M] Throw_
+
+@@ @@
+     private function __construct(int $value)
+     {
+         if ($value < 0) {
+-            throw new NdsCannotBeNegative();
++            new NdsCannotBeNegative();
+         }
+         if ($value > 20) {
+             throw new NdsCannotBeMoreThanTwenty();
+
+
+24) /app/app/ValueObjects/Nds.php:20    [M] GreaterThan
+
+@@ @@
+         if ($value < 0) {
+             throw new NdsCannotBeNegative();
+         }
+-        if ($value > 20) {
++        if ($value >= 20) {
+             throw new NdsCannotBeMoreThanTwenty();
+         }
+         $this->value = $value;
+
+
+25) /app/app/ValueObjects/Nds.php:20    [M] GreaterThanNegotiation
+
+@@ @@
+         if ($value < 0) {
+             throw new NdsCannotBeNegative();
+         }
+-        if ($value > 20) {
++        if ($value <= 20) {
+             throw new NdsCannotBeMoreThanTwenty();
+         }
+         $this->value = $value;
+
+
+26) /app/app/ValueObjects/Nds.php:21    [M] Throw_
+
+@@ @@
+             throw new NdsCannotBeNegative();
+         }
+         if ($value > 20) {
+-            throw new NdsCannotBeMoreThanTwenty();
++            new NdsCannotBeMoreThanTwenty();
+         }
+         $this->value = $value;
+     }
+
+
+27) /app/app/ValueObjects/Nds.php:27    [M] PublicVisibility
+
+@@ @@
+         }
+         $this->value = $value;
+     }
+-    public static function fromInt(int $value): self
++    protected static function fromInt(int $value): self
+     {
+         return new self($value);
+     }
+
+
+28) /app/app/ValueObjects/Nds.php:32    [M] PublicVisibility
+
+@@ @@
+     {
+         return new self($value);
+     }
+-    public static function zero(): self
++    protected static function zero(): self
+     {
+         return self::fromInt(0);
+     }
+
+
+29) /app/app/ValueObjects/Nds.php:34    [M] DecrementInteger
+
+@@ @@
+     }
+     public static function zero(): self
+     {
+-        return self::fromInt(0);
++        return self::fromInt(-1);
+     }
+     public function getValue(): int
+     {
+
+
+30) /app/app/ValueObjects/Nds.php:34    [M] IncrementInteger
+
+@@ @@
+     }
+     public static function zero(): self
+     {
+-        return self::fromInt(0);
++        return self::fromInt(1);
+     }
+     public function getValue(): int
+     {
+
+
+31) /app/app/ValueObjects/Nds.php:42    [M] PublicVisibility
+
+@@ @@
+     {
+         return $this->value;
+     }
+-    public function equals(self $nds): bool
++    protected function equals(self $nds): bool
+     {
+         return $this->value === $nds->value;
+     }
+ }
+
+
+32) /app/app/ValueObjects/Nds.php:44    [M] Identical
+
+@@ @@
+     }
+     public function equals(self $nds): bool
+     {
+-        return $this->value === $nds->value;
++        return $this->value !== $nds->value;
+     }
+ }
