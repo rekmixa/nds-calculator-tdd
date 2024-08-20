@@ -10,8 +10,6 @@ use PHPUnit\Framework\Attributes\UsesClass;
 use PHPUnit\Framework\TestCase;
 
 #[UsesClass(Amount::class)]
-#[CoversMethod(Amount::class, 'fromInt')]
-#[CoversMethod(Amount::class, 'fromFloat')]
 #[CoversMethod(Amount::class, 'getValue')]
 final class AmountValueObjectTest extends TestCase
 {

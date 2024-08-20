@@ -29,6 +29,5 @@ vendor/bin/phpunit tests
 
 ```bash
 make env
-vendor/bin/phpunit --coverage-clover .phpunit.coverage.reports/coverage.xml
-// todo
+vendor/bin/infection --threads=4
 ```
