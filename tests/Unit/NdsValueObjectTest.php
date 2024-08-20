@@ -7,14 +7,11 @@ namespace Tests\Unit;
 use App\ValueObjects\Exceptions\NdsCannotBeMoreThanTwenty;
 use App\ValueObjects\Exceptions\NdsCannotBeNegative;
 use App\ValueObjects\Nds;
-use PHPUnit\Framework\Attributes\CoversMethod;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
-use PHPUnit\Framework\Attributes\UsesClass;
 use PHPUnit\Framework\TestCase;
 
-#[UsesClass(Nds::class)]
-#[CoversMethod(Nds::class, 'getValue')]
-#[CoversMethod(Nds::class, 'equals')]
+#[CoversClass(Nds::class)]
 final class NdsValueObjectTest extends TestCase
 {
     public static function largeValuesProvider(): array

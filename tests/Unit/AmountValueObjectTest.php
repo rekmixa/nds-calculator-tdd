@@ -5,19 +5,10 @@ declare(strict_types=1);
 namespace Tests\Unit;
 
 use App\ValueObjects\Amount;
-use PHPUnit\Framework\Attributes\CoversMethod;
-use PHPUnit\Framework\Attributes\UsesClass;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
-#[UsesClass(Amount::class)]
-#[CoversMethod(Amount::class, 'getValue')]
-#[CoversMethod(Amount::class, 'add')]
-#[CoversMethod(Amount::class, 'subtract')]
-#[CoversMethod(Amount::class, 'multiply')]
-#[CoversMethod(Amount::class, 'divide')]
-#[CoversMethod(Amount::class, 'invertSign')]
-#[CoversMethod(Amount::class, 'normalize')]
-#[CoversMethod(Amount::class, 'equals')]
+#[CoversClass(Amount::class)]
 final class AmountValueObjectTest extends TestCase
 {
     public function testCreateFromInt(): void
