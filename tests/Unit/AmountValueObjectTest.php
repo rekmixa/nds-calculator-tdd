@@ -11,6 +11,13 @@ use PHPUnit\Framework\TestCase;
 
 #[UsesClass(Amount::class)]
 #[CoversMethod(Amount::class, 'getValue')]
+#[CoversMethod(Amount::class, 'add')]
+#[CoversMethod(Amount::class, 'subtract')]
+#[CoversMethod(Amount::class, 'multiply')]
+#[CoversMethod(Amount::class, 'divide')]
+#[CoversMethod(Amount::class, 'invertSign')]
+#[CoversMethod(Amount::class, 'normalize')]
+#[CoversMethod(Amount::class, 'equals')]
 final class AmountValueObjectTest extends TestCase
 {
     public function testCreateFromInt(): void

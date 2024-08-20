@@ -14,6 +14,7 @@ use PHPUnit\Framework\TestCase;
 
 #[UsesClass(Nds::class)]
 #[CoversMethod(Nds::class, 'getValue')]
+#[CoversMethod(Nds::class, 'equals')]
 final class NdsValueObjectTest extends TestCase
 {
     public static function largeValuesProvider(): array
