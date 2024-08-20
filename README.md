@@ -28,6 +28,6 @@ vendor/bin/phpunit tests
 ## Running mutation tests
 
 ```bash
-make env
+make env-root
 vendor/bin/infection --threads=4
 ```
